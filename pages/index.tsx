@@ -15,7 +15,7 @@ export default function Index() {
     const fetchData = async () => {
       const data = (await import('../lib/data')).default;
       setData(data);
-      await new Promise((r) => setTimeout(r, 2000));
+      // await new Promise((r) => setTimeout(r, 2000));
       setIsData(true);
     };
     fetchData();
