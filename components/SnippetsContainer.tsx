@@ -13,7 +13,11 @@ const SnippetsContainer = ({
   // Zustand store
   const filter = useStore((state) => state.filter);
   const selectedTags = useStore((state) => state.selectedTags);
+  const setNumFilteredSnippets = useStore(
+    (state) => state.setNumFilteredSnippets
+  );
   const [snippetsListState, setSnippetsListState] = useState([]);
+
   useEffect(() => {
     let snippetsList;
     // If no tags are selected don't do filtering based on tags(include results from every tag)
@@ -42,7 +46,8 @@ const SnippetsContainer = ({
         });
     }
     setSnippetsListState(snippetsList);
-  }, []);
+    setNumFilteredSnippets(snippetsList.length);
+  }, [filter, selectedTags]);
 
   return (
     <>
