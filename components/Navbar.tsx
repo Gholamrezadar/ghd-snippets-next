@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -20,7 +21,12 @@ export default function NavBar() {
       <div className="flex h-22 md:h-28 w-full items-center justify-center">
         <div className="flex h-full w-full max-w-4xl items-center justify-between p-5 text-2xl dark:text-ghd-dark-text">
           {/* Github svg */}
-          <div className="cursor-pointer">
+          <motion.div
+            drag
+            dragSnapToOrigin
+            dragTransition={{ bounceStiffness: 300, bounceDamping: 15 }}
+            className="cursor-pointer"
+          >
             <Link href="https://github.com/Gholamrezadar/ghd-snippets-next">
               <svg
                 viewBox="0 0 38 38"
@@ -42,15 +48,25 @@ export default function NavBar() {
                 />
               </svg>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Website Title */}
-          <div className="cursor-pointer">
+          <motion.div
+            drag
+            dragSnapToOrigin
+            dragTransition={{ bounceStiffness: 300, bounceDamping: 15 }}
+            className="cursor-pointer"
+          >
             <Link href="https://ghd-snippets.vercel.app/">GHD Snippets</Link>
-          </div>
+          </motion.div>
 
           {/* Sun SVG */}
-          <div className="cursor-pointer">
+          <motion.div
+            drag
+            dragSnapToOrigin
+            dragTransition={{ bounceStiffness: 300, bounceDamping: 15 }}
+            className="cursor-pointer"
+          >
             <svg
               className="w-9 h-9"
               viewBox="0 0 38 38"
@@ -72,7 +88,7 @@ export default function NavBar() {
                 strokeLinejoin="round"
               />
             </svg>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

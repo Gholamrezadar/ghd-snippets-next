@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+// import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import ISnippet from '../lib/ISnippet';
 import useStore from '../lib/store';
 import Snippet from './Snippet';

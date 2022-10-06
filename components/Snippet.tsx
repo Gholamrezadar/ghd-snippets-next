@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 // import {
@@ -15,6 +16,7 @@ const Snippet = ({
   setCopied: Dispatch<SetStateAction<boolean>>;
 }) => {
   const tags = useStore((state) => state.tags);
+  const selectedTags = useStore((state) => state.selectedTags);
   const copyToClipboard = async (content: string) => {
     // Toast
     setCopied(true);
@@ -45,7 +47,12 @@ const Snippet = ({
   });
   return (
     <>
-      <div className="w-full max-w-xl shadow-lg mb-4">
+      <motion.div
+        drag
+        dragSnapToOrigin
+        dragTransition={{ bounceStiffness: 300, bounceDamping: 5 }}
+        className="w-full max-w-xl shadow-lg mb-4"
+      >
         <div className="overflow-hidden">
           <div className="dark:bg-ghd-dark-dark flex flex-row justify-between rounded-t-xl px-7 py-2">
             <div>
@@ -108,7 +115,7 @@ const Snippet = ({
             </pre>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
