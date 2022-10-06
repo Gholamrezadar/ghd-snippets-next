@@ -2,8 +2,8 @@ import { ChangeEvent } from 'react';
 import useStore from '../lib/store';
 
 const CheckBoxItem = ({ tag }: { tag: string }) => {
-  const selectedTags = useStore((state) => state.selectedTags);
-  const setSelectedTags = useStore((state) => state.setSelectedTags);
+  console.log(`checkbox-${tag} rerender`);
+  const updateSelectedTags = useStore((state) => state.updateSelectedTags);
   return (
     <>
       <div className="md:mx-5 mx-1">
@@ -19,11 +19,11 @@ const CheckBoxItem = ({ tag }: { tag: string }) => {
           id={tag}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             const checked = e.target.checked;
-            if (checked && !selectedTags.includes(tag)) {
-              setSelectedTags([...selectedTags, tag]);
+            if (checked) {
+              updateSelectedTags(tag, true); // => setSelectedTags([...selectedTags, tag]);
             }
-            if (!checked && selectedTags.includes(tag)) {
-              setSelectedTags(selectedTags.filter((value) => value !== tag));
+            if (!checked) {
+              updateSelectedTags(tag, false); // => setSelectedTags(selectedTags.filter((value) => value !== tag));
             }
           }}
         />

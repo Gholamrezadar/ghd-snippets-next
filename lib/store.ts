@@ -10,6 +10,7 @@ export interface AppState {
 
   selectedTags: string[];
   setSelectedTags: (tags: string[]) => void;
+  updateSelectedTags: (tag: string, checked: boolean) => void;
 
   copied: boolean;
   setCopied: (copied: boolean) => void;
@@ -18,7 +19,7 @@ export interface AppState {
   setNumFilteredSnippets: (number) => void;
 }
 
-const useStore = create<AppState>((set) => ({
+const useStore = create<AppState>((set, get) => ({
   // Filter typed in the searchbar
   filter: '',
   setFilter: (filter) =>
@@ -46,6 +47,14 @@ const useStore = create<AppState>((set) => ({
       ...state,
       selectedTags,
     })),
+  // Update selected tags
+  updateSelectedTags: (tag, checked) => {
+    if (checked) get().setSelectedTags([...get().selectedTags, tag]);
+    else
+      get().setSelectedTags(
+        get().selectedTags.filter((value) => value !== tag)
+      );
+  },
 
   // Is 'A' snippet copied
   copied: false,

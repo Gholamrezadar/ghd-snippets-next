@@ -17,7 +17,6 @@ const Snippet = ({
   const tags = useStore((state) => state.tags);
   const copyToClipboard = async (content: string) => {
     // Toast
-    // alert(content);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
