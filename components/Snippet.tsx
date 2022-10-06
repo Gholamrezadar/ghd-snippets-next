@@ -104,8 +104,8 @@ const Snippet = ({
             >
               {snippet.content}
             </SyntaxHighlighter> */}
-            <pre className="dark:bg-ghd-dark-code-bg p-4">
-              {snippet.content}
+            <pre className="dark:bg-ghd-dark-code-bg p-4 pb-1 overflow-hidden rounded-b-lg">
+              <div className="card-box">{snippet.content}</div>
             </pre>
           </div>
         </div>

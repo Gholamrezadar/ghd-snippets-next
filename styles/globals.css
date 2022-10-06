@@ -41,3 +41,24 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 8px; /* roundness of the scroll thumb */
   border: #1d2026 5px solid;
 }
+
+.card-box {
+  overflow-x: auto;
+}
+
+.card-box::-webkit-scrollbar {
+  width: 16px; /* width of the entire scrollbar */
+}
+.card-box::-webkit-scrollbar-track {
+  background: rgb(40, 44, 52); /* color of the tracking area */
+}
+.card-box::-webkit-scrollbar-thumb {
+  background-color: #151518; /* color of the scroll thumb */
+  border-radius: 8px; /* roundness of the scroll thumb */
+  border: rgb(40, 44, 52) 5px solid;
+}
+.card-box::-webkit-scrollbar-thumb:hover {
+  background-color: #111114; /* color of the scroll thumb */
+  border-radius: 8px; /* roundness of the scroll thumb */
+  border: rgb(40, 44, 52) 5px solid;
+}
