@@ -51,6 +51,14 @@ const Snippet = ({
         drag
         dragSnapToOrigin
         dragTransition={{ bounceStiffness: 300, bounceDamping: 5 }}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          type: 'spring',
+          bounce: 0.2,
+          duration: 0.6,
+        }}
         className="w-full max-w-xl shadow-lg mb-4"
       >
         <div className="overflow-hidden">

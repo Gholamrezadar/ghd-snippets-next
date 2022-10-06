@@ -14,7 +14,7 @@ const CheckBoxItem = ({ tag }: { tag: string }) => {
           {tag}
         </label>
         <input
-          className="appearance-none w-[1.125rem] h-[1.125rem] text-blue-600 rounded-[4px] dark:checked:bg-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center bg-contain cursor-pointer align-middle  dark:bg-ghd-dark-checkbox-disabled"
+          className="appearance-none w-[1.125rem] h-[1.125rem] text-blue-600 rounded-[4px] dark:checked:bg-blue-600 focus:outline-none transition duration-200 ease-out bg-no-repeat bg-center bg-contain cursor-pointer align-middle dark:bg-ghd-dark-checkbox-disabled dark:checked:rotate-45"
           type="checkbox"
           id={tag}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
