@@ -15,7 +15,7 @@ export default function NavBar() {
         <div className="flex h-full w-full max-w-4xl items-center justify-between p-5 text-2xl dark:text-ghd-dark-text">
           {/* Github svg */}
           <div className="cursor-pointer">
-            <Link href="http://www.github.com/gholamrezadar">
+            <Link href="https://github.com/Gholamrezadar/ghd-snippets-next">
               <svg
                 viewBox="0 0 38 38"
                 className="h-9 w-9"
