@@ -69,6 +69,9 @@ const SearchBar = () => {
             {checkBoxList}
           </div>
           {/* selected: {selectedTags} */}
+          <div className="mt-5 text-ghd-dark-muted-text">
+            Found {100} Snippets
+          </div>
         </div>
       </div>
     </>

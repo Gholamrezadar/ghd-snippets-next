@@ -2630,7 +2630,7 @@ const data: ISnippet[] = [
       return F.log_softmax(x, dim=1)
       `,
   },
-].slice(0, 10);
+].slice(0, 100);
 
 // Get unique tags for filtering
 export const tags = [

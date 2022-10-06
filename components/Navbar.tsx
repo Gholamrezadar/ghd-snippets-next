@@ -40,7 +40,7 @@ export default function NavBar() {
 
           {/* Website Title */}
           <div className="cursor-pointer">
-            <Link href="http://www.google.com">GHD Snippets</Link>
+            <Link href="https://ghd-snippets.vercel.app/">GHD Snippets</Link>
           </div>
 
           {/* Sun SVG */}
