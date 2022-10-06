@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import useStore from '../lib/store';
 import CheckBoxItem from './CheckBoxItem';
+import FoundSnippetsCounter from './FoundSnippetsCounter';
 
 const SearchBar = () => {
+  console.log('searchbar rerender');
   // Zustand Store
   const filter = useStore((state) => state.filter);
   const setFilter = useStore((state) => state.setFilter);
   const tags = useStore((state) => state.tags);
-  const selectedTags = useStore((state) => state.selectedTags);
-  const setSelectedTags = useStore((state) => state.setSelectedTags);
+
   const fetchTags = useStore((state) => state.fetchTags);
-  const numFilteredSnippets = useStore((state) => state.numFilteredSnippets);
 
   const [isData, setIsData] = useState<boolean>(false);
+  const [checkBoxListState, setCheckBoxListState] = useState<any>();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,30 +24,17 @@ const SearchBar = () => {
     fetchData();
   }, []);
 
-  const handleTagCheck = (tag: string, checked: boolean) => {
-    if (checked && !selectedTags.includes(tag)) {
-      setSelectedTags([...selectedTags, tag]);
+  useEffect(() => {
+    let checkBoxList;
+    if (isData) {
+      checkBoxList = tags.map((item) => {
+        return <CheckBoxItem tag={item} key={item} />;
+      });
+    } else {
+      checkBoxList = <div>Loading Tags ...</div>;
     }
-    if (!checked && selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter((value) => value !== tag));
-    }
-    // alert(tag + ' ' + checked);
-  };
-  let checkBoxList;
-
-  if (isData) {
-    checkBoxList = tags.map((item) => {
-      return (
-        <CheckBoxItem
-          tag={item}
-          key={item}
-          onCheck={(checked: boolean) => handleTagCheck(item, checked)}
-        />
-      );
-    });
-  } else {
-    checkBoxList = <div>Loading Tags ...</div>;
-  }
+    setCheckBoxListState(checkBoxList);
+  }, [isData]);
 
   return (
     <>
@@ -86,12 +74,10 @@ const SearchBar = () => {
           </div>
           {/* Checkboxes */}
           <div className="flex flex-wrap items-center justify-center">
-            {checkBoxList}
+            {checkBoxListState}
           </div>
           {/* selected: {selectedTags} */}
-          <div className="mt-5 text-ghd-dark-muted-text">
-            Found {numFilteredSnippets} Snippets
-          </div>
+          <FoundSnippetsCounter />
         </div>
       </div>
     </>

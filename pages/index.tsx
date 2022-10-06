@@ -8,9 +8,6 @@ import useStore from '../lib/store';
 // import data from '../lib/data';
 
 export default function Index() {
-  
-  const setCopied = useStore((state) => state.setCopied);
-  const numFilteredSnippets = useStore((state) => state.numFilteredSnippets);
   const setNumFilteredSnippets = useStore(
     (state) => state.setNumFilteredSnippets
   );
@@ -36,14 +33,12 @@ export default function Index() {
       <NavBar />
       <SearchBar />
       {isData ? (
-        <SnippetsContainer snippets={data}/>
+        <SnippetsContainer snippets={data} />
       ) : (
         <div className="w-full text-center text-white">Loading Cards ...</div>
       )}
       {/* <SnippetsContainer snippets={data} setCopied={setCopied} /> */}
-      <CopiedToast
-        text={'Code Successfully copied to clipboard!'}
-      />
+      <CopiedToast text={'Code Successfully copied to clipboard!'} />
     </>
   );
 }
