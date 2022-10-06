@@ -1,10 +1,4 @@
-export interface ISnippet {
-  id: number;
-  title: string;
-  subtitle: string;
-  tags: string[];
-  content: string;
-}
+import ISnippet from "./ISnippet";
 
 const databackup: ISnippet[] = [
   {

@@ -3,31 +3,34 @@ import CopiedToast from '../components/CopiedToast';
 import NavBar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import SnippetsContainer from '../components/SnippetsContainer';
-import data from '../lib/data';
+import ISnippet from '../lib/ISnippet';
+// import data from '../lib/data';
 
 export default function Index() {
-  const [tags, setTags] = useState<string[]>([]);
   const [copied, setCopied] = useState<boolean>(false);
+  const [data, setData] = useState<ISnippet[]>([]);
+  const [isData, setIsData] = useState<boolean>(false);
 
   useEffect(() => {
-    // use Set to get the unique 'tags' from 'data'
-    let tags = new Set(
-      data.flatMap((item) => {
-        return item.tags;
-      })
-    );
-
-    console.log('tags', tags);
-
-    // save the extracted tags in the 'tags' state
-    setTags([...tags]);
+    const fetchData = async () => {
+      const data = (await import('../lib/data')).default;
+      setData(data);
+      await new Promise((r) => setTimeout(r, 2000));
+      setIsData(true);
+    };
+    fetchData();
   }, []);
 
   return (
     <>
       <NavBar />
       <SearchBar />
-      <SnippetsContainer snippets={data} setCopied={setCopied} />
+      {isData ? (
+        <SnippetsContainer snippets={data} setCopied={setCopied} />
+      ) : (
+        <div className="w-full text-center text-white">Loading Cards ...</div>
+      )}
+      {/* <SnippetsContainer snippets={data} setCopied={setCopied} /> */}
       <CopiedToast
         text={'Code Successfully copied to clipboard!'}
         copied={copied}

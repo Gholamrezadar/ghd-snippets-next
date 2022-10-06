@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import useStore from '../lib/store';
 import CheckBoxItem from './CheckBoxItem';
 
@@ -8,6 +9,18 @@ const SearchBar = () => {
   const tags = useStore((state) => state.tags);
   const selectedTags = useStore((state) => state.selectedTags);
   const setSelectedTags = useStore((state) => state.setSelectedTags);
+  const fetchTags = useStore((state) => state.fetchTags);
+
+  const [isData, setIsData] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchTags();
+      await new Promise((r) => setTimeout(r, 1000));
+      setIsData(true);
+    };
+    fetchData();
+  }, []);
 
   const handleTagCheck = (tag: string, checked: boolean) => {
     if (checked && !selectedTags.includes(tag)) {
@@ -18,15 +31,21 @@ const SearchBar = () => {
     }
     // alert(tag + ' ' + checked);
   };
-  const checkBoxList = tags.map((item) => {
-    return (
-      <CheckBoxItem
-        tag={item}
-        key={item}
-        onCheck={(checked: boolean) => handleTagCheck(item, checked)}
-      />
-    );
-  });
+  let checkBoxList;
+
+  if (isData) {
+    checkBoxList = tags.map((item) => {
+      return (
+        <CheckBoxItem
+          tag={item}
+          key={item}
+          onCheck={(checked: boolean) => handleTagCheck(item, checked)}
+        />
+      );
+    });
+  } else {
+    checkBoxList = <div>Loading Tags ...</div>;
+  }
 
   return (
     <>

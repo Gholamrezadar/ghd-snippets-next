@@ -6,6 +6,7 @@ export interface AppState {
   setFilter: (filter: string) => void;
 
   tags: string[];
+  fetchTags
   setTags: (tags: string[]) => void;
 
   selectedTags: string[];
@@ -25,7 +26,11 @@ const useStore = create<AppState>((set) => ({
     })),
 
   // All available Tags
-  tags: tags,
+  tags: [],
+  fetchTags: async () => {
+    const data = (await import('../lib/data')).tags;
+    set({ tags: data });
+  },
   setTags: (tags) =>
     set((state) => ({
       ...state,

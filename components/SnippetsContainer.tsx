@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { ISnippet } from '../lib/data';
+import ISnippet from '../lib/ISnippet';
 import useStore from '../lib/store';
 import Snippet from './Snippet';
 

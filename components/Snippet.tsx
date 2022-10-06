@@ -4,8 +4,7 @@ import {
   atomOneDark,
   atomOneLight,
 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { ISnippet } from '../lib/data';
-import Hash from '../lib/hash';
+import ISnippet from '../lib/ISnippet';
 
 const Snippet = ({
   snippet,
