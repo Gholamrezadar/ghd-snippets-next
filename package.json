@@ -11,7 +11,6 @@
     "next": "^12.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-syntax-highlighter": "^15.5.0",
     "zustand": "^4.1.1"
   },
   "devDependencies": {
@@ -19,7 +18,6 @@
     "@types/react": "18.0.21",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.17",
-    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.1.8",
     "typescript": "4.8.4"
   }

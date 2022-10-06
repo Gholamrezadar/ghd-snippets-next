@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import {
-  atomOneDark,
-  atomOneLight,
-} from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+// import {
+//   atomOneDark,
+//   atomOneLight,
+// } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import ISnippet from '../lib/ISnippet';
 
 const Snippet = ({
@@ -91,7 +91,7 @@ const Snippet = ({
             </div>
           </div>
           <div className="dark:bg-gray-900 rounded-b-xl dark:text-gray-400">
-            <SyntaxHighlighter
+            {/* <SyntaxHighlighter
               language="python"
               style={atomOneDark}
               showLineNumbers
@@ -103,7 +103,10 @@ const Snippet = ({
               }}
             >
               {snippet.content}
-            </SyntaxHighlighter>
+            </SyntaxHighlighter> */}
+            <pre className="dark:bg-ghd-dark-code-bg p-4">
+              {snippet.content}
+            </pre>
           </div>
         </div>
       </div>

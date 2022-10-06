@@ -55,7 +55,9 @@ const SnippetsContainer = ({
 
   return (
     <>
-      <div className="flex items-center w-full flex-col">{snippetsList}</div>
+      <div className="flex items-center w-full flex-col px-2">
+        {snippetsList}
+      </div>
     </>
   );
 };
