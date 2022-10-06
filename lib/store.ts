@@ -1,12 +1,11 @@
 import create from 'zustand';
-import { tags } from './data';
 
 export interface AppState {
   filter: string;
   setFilter: (filter: string) => void;
 
   tags: string[];
-  fetchTags
+  fetchTags: any;
   setTags: (tags: string[]) => void;
 
   selectedTags: string[];

@@ -5,16 +5,16 @@ import { Dispatch, SetStateAction } from 'react';
 //   atomOneLight,
 // } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import ISnippet from '../lib/ISnippet';
+import useStore from '../lib/store';
 
 const Snippet = ({
   snippet,
-  tags,
   setCopied,
 }: {
   snippet: ISnippet;
-  tags: string[];
   setCopied: Dispatch<SetStateAction<boolean>>;
 }) => {
+  const tags = useStore((state) => state.tags);
   const copyToClipboard = async (content: string) => {
     // Toast
     // alert(content);

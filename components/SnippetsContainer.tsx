@@ -14,12 +14,6 @@ const SnippetsContainer = ({
   const filter = useStore((state) => state.filter);
   const selectedTags = useStore((state) => state.selectedTags);
 
-  let tags = new Set(
-    snippets.flatMap((snippet) => {
-      return snippet.tags;
-    })
-  );
-
   let snippetsList;
   // If no tags are selected don't do filtering based on tags(include results from every tag)
   if (selectedTags.length === 0) {
@@ -29,7 +23,6 @@ const SnippetsContainer = ({
         return (
           <Snippet
             snippet={snippet}
-            tags={[...tags]}
             key={snippet.id}
             setCopied={setCopied}
           />
@@ -45,7 +38,6 @@ const SnippetsContainer = ({
         return (
           <Snippet
             snippet={snippet}
-            tags={[...tags]}
             key={snippet.id}
             setCopied={setCopied}
           />
