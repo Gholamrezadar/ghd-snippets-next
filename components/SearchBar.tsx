@@ -50,13 +50,13 @@ const SearchBar = () => {
   return (
     <>
       {/* Search Bar */}
-      <div className="flex h-44 w-full items-center justify-center mb-4">
+      <div className="flex h-32 md:h-44 w-full items-center justify-center mb-6 md:md-4">
         <div className="flex h-full w-full max-w-4xl flex-col items-center justify-center p-5 dark:text-white">
           {/* Search field */}
-          <div className="flex items-center justify-center w-full max-w-2xl mb-6">
+          <div className="flex items-center justify-center w-full max-w-2xl mb-2 md:mb-6">
             <div
               tabIndex={0}
-              className=" flex form-control m-0 block w-full rounded-full dark:bg-ghd-dark-dark bg-clip-padding px-12 py-5 text-gray-200 transition ease-in-out focus:ring-4 focus:ring-slate-700 focus-ring"
+              className=" flex form-control m-0 block w-full rounded-full dark:bg-ghd-dark-dark bg-clip-padding px-12 md:py-5 py-2 text-gray-200 transition ease-in-out focus:ring-4 focus:ring-slate-700 focus-ring"
             >
               {/* Search field input */}
               <input

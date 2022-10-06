@@ -17,7 +17,7 @@ export default function NavBar() {
         />
       </Head>
       {/* Navbar */}
-      <div className="flex h-28 w-full items-center justify-center">
+      <div className="flex h-22 md:h-28 w-full items-center justify-center">
         <div className="flex h-full w-full max-w-4xl items-center justify-between p-5 text-2xl dark:text-ghd-dark-text">
           {/* Github svg */}
           <div className="cursor-pointer">

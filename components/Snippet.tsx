@@ -50,7 +50,7 @@ const Snippet = ({
         <div className="overflow-hidden">
           <div className="dark:bg-ghd-dark-dark flex flex-row justify-between rounded-t-xl px-7 py-2">
             <div>
-              <div className="text-md text-ghd-dark-text">
+              <div className="text-md text-ghd-dark-text mb-1">
                 {snippet.title} {tagList}
               </div>
 

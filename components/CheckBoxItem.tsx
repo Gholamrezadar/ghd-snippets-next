@@ -9,9 +9,9 @@ const CheckBoxItem = ({
 }) => {
   return (
     <>
-      <div className="mx-5">
+      <div className="md:mx-5 mx-1">
         <label
-          className="mx-1.5 ml-2 text-md  text-gray-900 dark:text-gray-300 cursor-pointer"
+          className="mx-1.5 text-md text-gray-900 dark:text-gray-300 cursor-pointer"
           htmlFor={tag}
         >
           {tag}
