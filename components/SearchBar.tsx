@@ -50,7 +50,7 @@ const SearchBar = () => {
   return (
     <>
       {/* Search Bar */}
-      <div className="flex h-32 md:h-44 w-full items-center justify-center mb-6 md:md-4">
+      <div className="flex h-44 md:h-44 w-full items-center justify-center mb-6 md:md-4">
         <div className="flex h-full w-full max-w-4xl flex-col items-center justify-center p-5 dark:text-white">
           {/* Search field */}
           <div className="flex items-center justify-center w-full max-w-2xl mb-2 md:mb-6">
