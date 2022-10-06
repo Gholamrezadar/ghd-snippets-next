@@ -26,7 +26,7 @@ export default function Index() {
   return (
     <>
       <NavBar />
-      <SearchBar tags={tags} />
+      <SearchBar />
       <SnippetsContainer snippets={data} setCopied={setCopied} />
       <CopiedToast
         text={'Code Successfully copied to clipboard!'}
