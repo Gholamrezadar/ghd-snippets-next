@@ -3,14 +3,9 @@ import ISnippet from '../lib/ISnippet';
 import useStore from '../lib/store';
 import Snippet from './Snippet';
 
-const SnippetsContainer = ({
-  snippets,
-  setCopied,
-}: {
-  snippets: ISnippet[];
-  setCopied: Dispatch<SetStateAction<boolean>>;
-}) => {
+const SnippetsContainer = ({ snippets }: { snippets: ISnippet[] }) => {
   // Zustand store
+  const setCopied = useStore((state) => state.setCopied);
   const filter = useStore((state) => state.filter);
   const selectedTags = useStore((state) => state.selectedTags);
   const setNumFilteredSnippets = useStore(
@@ -45,7 +40,9 @@ const SnippetsContainer = ({
           );
         });
     }
+    // Set current snippets as a state
     setSnippetsListState(snippetsList);
+    // Set the number of current snippets
     setNumFilteredSnippets(snippetsList.length);
   }, [filter, selectedTags]);
 

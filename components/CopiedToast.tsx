@@ -1,4 +1,7 @@
-const CopiedToast = ({ text, copied }: { text: string; copied: boolean }) => {
+import useStore from "../lib/store";
+
+const CopiedToast = ({ text }: { text: string }) => {
+  const copied = useStore((state) => state.copied);
   return (
     <div
       className="fixed right-10 bottom-5 bg-green-100 rounded-lg py-5 px-6 mb-3 text-base text-green-700 inline-flex items-center transition ease-in duration-300"
