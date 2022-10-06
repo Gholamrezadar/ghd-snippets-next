@@ -10,6 +10,7 @@ const SearchBar = () => {
   const selectedTags = useStore((state) => state.selectedTags);
   const setSelectedTags = useStore((state) => state.setSelectedTags);
   const fetchTags = useStore((state) => state.fetchTags);
+  const numFilteredSnippets = useStore((state) => state.numFilteredSnippets);
 
   const [isData, setIsData] = useState<boolean>(false);
 
@@ -89,7 +90,7 @@ const SearchBar = () => {
           </div>
           {/* selected: {selectedTags} */}
           <div className="mt-5 text-ghd-dark-muted-text">
-            Found {100} Snippets
+            Found {numFilteredSnippets} Snippets
           </div>
         </div>
       </div>

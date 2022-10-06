@@ -13,6 +13,9 @@ export interface AppState {
 
   copied: boolean;
   setCopied: (copied: boolean) => void;
+
+  numFilteredSnippets: number;
+  setNumFilteredSnippets: (number) => void;
 }
 
 const useStore = create<AppState>((set) => ({
@@ -51,6 +54,10 @@ const useStore = create<AppState>((set) => ({
       ...state,
       copied,
     })),
+
+  numFilteredSnippets: 0,
+  setNumFilteredSnippets: (numFilteredSnippets) =>
+    set((state) => ({ ...state, numFilteredSnippets })),
 }));
 
 export default useStore;
