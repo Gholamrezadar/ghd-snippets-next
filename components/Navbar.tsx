@@ -9,6 +9,12 @@ export default function NavBar() {
           GHD Snippets: A very useful and professional and well designed snippet
           codex made by professionals for professionals!
         </title>
+        <meta
+          name="description"
+          content="GHD Snippets: A very useful and professional and well designed snippet
+          codex made by professionals for professionals!"
+          key="desc"
+        />
       </Head>
       {/* Navbar */}
       <div className="flex h-28 w-full items-center justify-center">
