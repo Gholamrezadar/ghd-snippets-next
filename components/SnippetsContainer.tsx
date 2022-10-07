@@ -1,4 +1,5 @@
 // import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import ISnippet from '../lib/ISnippet';
 import useStore from '../lib/store';
@@ -50,7 +51,9 @@ const SnippetsContainer = ({ snippets }: { snippets: ISnippet[] }) => {
   return (
     <>
       <div className="flex items-center w-full flex-col px-2">
+        <AnimatePresence>
         {snippetsListState}
+        </AnimatePresence>
       </div>
     </>
   );
