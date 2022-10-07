@@ -52,7 +52,7 @@ const SnippetsContainer = ({ snippets }: { snippets: ISnippet[] }) => {
     <>
       <div className="flex items-center w-full flex-col px-2">
         <AnimatePresence>
-        {snippetsListState}
+          {snippetsListState}
         </AnimatePresence>
       </div>
     </>
