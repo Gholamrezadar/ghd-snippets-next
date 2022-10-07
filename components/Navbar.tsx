@@ -10,6 +10,7 @@ export default function NavBar() {
           GHD Snippets: A very useful and professional and well designed snippet
           codex made by professionals for professionals!
         </title>
+        <link rel="shortcut icon" href="/static/images/favicon.ico" />
         <meta
           name="description"
           content="GHD Snippets: A very useful and professional and well designed snippet
