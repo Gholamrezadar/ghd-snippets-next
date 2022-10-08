@@ -131,7 +131,7 @@ const Snippet = ({
             >
               {snippet.content}
             </SyntaxHighlighter> */}
-            <pre className="dark:bg-ghd-dark-code-bg px-4 pb-0 overflow-hidden rounded-b-lg text-xs md:text-base">
+            <pre className="dark:bg-ghd-dark-code-bg px-4 pb-1 overflow-hidden rounded-b-lg text-xs md:text-base">
               <div className="card-box max-h-[30rem]">{snippet.content}</div>
             </pre>
           </div>

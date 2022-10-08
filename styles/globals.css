@@ -72,3 +72,9 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 8px; /* roundness of the scroll thumb */
   border: rgb(40, 44, 52) 5px solid;
 }
+
+/* White corner fix */
+.card-box::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
