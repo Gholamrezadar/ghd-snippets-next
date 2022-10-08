@@ -26,7 +26,17 @@ const Snippet = ({
     // Write the content to clipboard
     await navigator.clipboard.writeText(content);
   };
-  const tagColors = ['bg-red-500', 'bg-blue-500', 'bg-green-500'];
+  const tagColors = [
+    'bg-red-500',
+    'bg-blue-500',
+    'bg-green-500',
+    'bg-orange-500',
+    'bg-amber-500',
+    'bg-teal-500',
+    'bg-indigo-500',
+    'bg-rose-500',
+    'bg-slate-500',
+  ];
   const tagList = snippet.tags.map((tag) => {
     // Index used for picking tag pill(badge) colors
     let i = tags.indexOf(tag) % tagColors.length;
@@ -35,7 +45,7 @@ const Snippet = ({
       // Tag Badge
       <span
         className={
-          'text-xs inline-block py-1 px-1.5 mx-0.5 leading-none text-center whitespace-nowrap align-baselinetext-white rounded-full' +
+          'text-xs inline-block py-1 px-1.5 mx-0.5 leading-none text-center whitespace-nowrap align-baselinetext-white rounded-full text-gray-100 font-normal' +
           ' ' +
           tagColors[i]
         }
@@ -121,8 +131,8 @@ const Snippet = ({
             >
               {snippet.content}
             </SyntaxHighlighter> */}
-            <pre className="dark:bg-ghd-dark-code-bg p-4 pb-1 overflow-hidden rounded-b-lg text-xs md:text-base">
-              <div className="card-box">{snippet.content}</div>
+            <pre className="dark:bg-ghd-dark-code-bg px-4 pb-0 overflow-hidden rounded-b-lg text-xs md:text-base">
+              <div className="card-box max-h-[30rem]">{snippet.content}</div>
             </pre>
           </div>
         </div>

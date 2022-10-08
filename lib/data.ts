@@ -221,25 +221,73 @@ const data: ISnippet[] = [
     title: 'Training Loop',
     subtitle:
       'some random subtitle that is randomly generated to be placed here!',
-    tags: ['Numpy'],
-    content: `class Net(nn.Module):
-  def __init__(self):
-      super(Net, self).__init__()
-      self.conv1 = nn.Conv2d(1, 20, 5, 1)
-      self.conv2 = nn.Conv2d(20, 50, 5, 1)
-      self.fc1 = nn.Linear(4*4*50, 500)
-      self.fc2 = nn.Linear(500, 10)
+    tags: ['GHD', 'Matplotlib'],
+    content: `def show_palette(centers, k):
+    """Displays the centers as a color palette in kmeans"""
+    fig, axs = plt.subplots(1, k, figsize=(k,1), constrained_layout=True)
+    for idx, center in enumerate(centers):
+      color = np.round(np.ones((16,16,3), dtype='int')*center.astype('int'))
+      ax = axs[idx]
+      ax.set_xticks([])
+      ax.set_yticks([])
+      ax.imshow(color)
+    plt.show()
   
-  def forward(self, x):
-      x = F.relu(self.conv1(x))
-      x = F.max_pool2d(x, 2, 2)
-      x = F.relu(self.conv2(x))
-      x = F.max_pool2d(x, 2, 2)
-      x = x.view(-1, 4*4*50)
-      x = F.relu(self.fc1(x))
-      x = self.fc2(x)
-      return F.log_softmax(x, dim=1)
-      `,
+  def posterize_image(image, k, display=True, is_lab=False):
+    """Does kmeans clustering on the image and uses kmeans centeroids to approximate each pixels color
+  
+    Parameters
+    ----------
+    image: 3d rgb image
+      input image
+  
+    k: int
+      number of clusters(colors)
+  
+    display: bool
+      whether to display the images or to use the function to get the posterized_image
+    
+    Returns
+    -------
+    posterized_image: 3d rgb image
+      posterized version of 'image'
+    """
+    # Transform 3d image into a 2d array (m,n,c) -> (m*n,c)
+    image = image.copy()
+    X = image.reshape(image.shape[0]*image.shape[1], -1)
+  
+    # Randomly select k points as centeroids
+    np.random.seed(2)
+    centers = np.zeros((k, X.shape[1]))
+    for i in range(k):
+      centers[i] = X[np.random.randint(0, len(X))]
+  
+    # K-means Clustering
+    kmeans = GHDKmeans(k=k, tol=0.0001, max_iter=150)
+    kmeans.fit(X, centers)
+  
+    # Image posterization
+    pred = kmeans.predict()
+    for idx, center in enumerate(kmeans.centers):
+      X[pred==idx] = center
+  
+    posterized_image = X.reshape(image.shape)
+  
+    if is_lab:
+      posterized_image = color.lab2rgb(posterized_image)
+  
+    if display:
+      # Display the Posterized image
+      plt.title(f"K={k}")
+      plt.xticks([])
+      plt.yticks([])
+      plt.imshow(posterized_image)
+      plt.show()
+  
+      # Display the color palette
+      show_palette(kmeans.centers, k)
+  
+    return posterized_image.copy()`,
   },
 
   {
