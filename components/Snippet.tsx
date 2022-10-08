@@ -48,9 +48,9 @@ const Snippet = ({
   return (
     <>
       <motion.div
-        drag
-        dragSnapToOrigin
-        dragTransition={{ bounceStiffness: 300, bounceDamping: 10 }}
+        // drag
+        // dragSnapToOrigin
+        // dragTransition={{ bounceStiffness: 300, bounceDamping: 10 }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         animate={{ opacity: 0 }}
