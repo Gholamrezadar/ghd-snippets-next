@@ -6,7 +6,7 @@ const CheckBoxItem = ({ tag }: { tag: string }) => {
   const updateSelectedTags = useStore((state) => state.updateSelectedTags);
   return (
     <>
-      <div className="md:mx-5 mx-1">
+      <div className="md:mx-2 mx-1">
         <label
           className="mx-1.5 text-md text-gray-900 dark:text-gray-300 cursor-pointer"
           htmlFor={tag}
