@@ -2,7 +2,7 @@
 
 View The website : https://ghd-snippets.vercel.app
 
-[demo image of the website](https://github.com/Gholamrezadar/ghd-snippets-next/blob/main/images/screenshot-min.png?raw=true)
+![demo image of the website](https://github.com/Gholamrezadar/ghd-snippets-next/blob/main/images/screenshot-min.png?raw=true)
 
 I recently started learning PyTorch. One of my main issues with PyTorch coming from a keras background was it's lack of premade everyday functionalities like plotting the loss, loading a dataset, etc.
 
