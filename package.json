@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "cssnano": "^5.1.13",
     "framer-motion": "^5.0.1",
     "next": "^12.0.1",
     "react": "17.0.1",

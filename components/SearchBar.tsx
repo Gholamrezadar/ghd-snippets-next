@@ -4,7 +4,7 @@ import CheckBoxItem from './CheckBoxItem';
 import FoundSnippetsCounter from './FoundSnippetsCounter';
 
 const SearchBar = () => {
-  console.log('searchbar rerender');
+  // console.log('searchbar rerender');
   // Zustand Store
   const filter = useStore((state) => state.filter);
   const setFilter = useStore((state) => state.setFilter);

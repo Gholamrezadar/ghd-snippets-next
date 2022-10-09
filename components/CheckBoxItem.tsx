@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import useStore from '../lib/store';
 
 const CheckBoxItem = ({ tag }: { tag: string }) => {
-  console.log(`checkbox-${tag} rerender`);
+  // console.log(`checkbox-${tag} rerender`);
   const updateSelectedTags = useStore((state) => state.updateSelectedTags);
   return (
     <>

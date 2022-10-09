@@ -21,7 +21,7 @@ export default function Index() {
       const data = (await import('../lib/data')).default;
       setData(data);
       setNumFilteredSnippets(data.length);
-      console.log('> This should run once (loading data)');
+      // console.log('> This should run once (loading data)');
       // await new Promise((r) => setTimeout(r, 2000));
       setIsData(true);
     };
