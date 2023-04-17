@@ -736,6 +736,20 @@ def before_after(img_a, img_b, name='', vmin=None, vmax=None, effect_name='Proce
         axs[1].imshow(img_b, cmap='gray')
     plt.show()`,
   },
+{
+    id: 38,
+    title: 'GHD Timer',
+    subtitle:
+      'timer=Timer() and then timer.tick() every time you finish something!',
+    tags: ['Python'],
+    content: `
+class Timer():
+    def __init__(self):
+        self.time = time.perf_counter_ns()
+    def tick(self):
+        print(f"Took {(time.perf_counter_ns() - self.time)/1_000_000:.2f} ms\n")
+        self.time = time.perf_counter_ns()
+`
 ];
 
 // Get unique tags for filtering
