@@ -749,7 +749,7 @@ class Timer():
     def tick(self):
         print(f"Took {(time.perf_counter_ns() - self.time)/1_000_000:.2f} ms\n")
         self.time = time.perf_counter_ns()
-`
+`}
 ];
 
 // Get unique tags for filtering
