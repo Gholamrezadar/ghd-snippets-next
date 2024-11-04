@@ -791,7 +791,7 @@ void dfs(int node, const vector<vector<int>>& graph, vector<bool>& visited) {
 }
 `},
   {
-    id: 40,
+    id: 41,
     title: 'BFS',
     subtitle:
       'BFS algorithm',
