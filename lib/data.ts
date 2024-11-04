@@ -749,7 +749,75 @@ class Timer():
     def tick(self):
         print(f"Took {(time.perf_counter_ns() - self.time)/1_000_000:.2f} ms\n")
         self.time = time.perf_counter_ns()
-`}
+`},
+  {
+    id: 39,
+    title: 'Import pytorch + device + random seed',
+    subtitle:
+      'import torch, set device and set manual seed',
+    tags: ['Python', 'PyTorch'],
+    content: `
+import torch
+import torch.nn
+import torch.functional as F
+from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
+
+SEED = 69
+torch.manual_seed(SEED)
+torch.cuda.manual_seed(SEED)
+torch.backends.cudnn.deterministic = True
+
+device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+print(f"device: {device}")
+print(f"torch version: {torch.__version__}")`
+  },
+  {
+    id: 40,
+    title: 'DFS',
+    subtitle:
+      'DFS algorithm',
+    tags: ['C++', 'CP'],
+    content: `
+void dfs(int node, const vector<vector<int>>& graph, vector<bool>& visited) {
+  visited[node] = true;
+  cout << "Visited node: " << node << endl;
+  
+  for (int neighbor : graph[node]) {
+      if (!visited[neighbor]) {
+          dfs(neighbor, graph, visited);
+      }
+  }
+}
+`},
+  {
+    id: 40,
+    title: 'BFS',
+    subtitle:
+      'BFS algorithm',
+    tags: ['C++', 'CP'],
+    content: `
+void bfs(int startNode, const vector<vector<int>>& graph, vector<bool>& visited) {
+    queue<int> q;
+    q.push(startNode);
+    visited[startNode] = true;
+
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+
+        cout << "Visited node: " << node << endl;
+
+        // Push all unvisited neighbors to the queue
+        for (int neighbor : graph[node]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+`},
 ];
 
 // Get unique tags for filtering
