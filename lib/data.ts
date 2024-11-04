@@ -758,7 +758,7 @@ class Timer():
     tags: ['Python', 'PyTorch'],
     content: `
 import torch
-import torch.nn
+import torch.nn as nn
 import torch.functional as F
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
